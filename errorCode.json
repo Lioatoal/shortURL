@@ -1,0 +1,8 @@
+{
+  "SUCCESS":{
+    "message": "操作成功!"
+  },
+  "INVALID_EMPTY_DATA":{
+    "message": "無資料可存取"
+  }
+}
