@@ -6,7 +6,7 @@
     "test": "jest",
     "lint": "eslint src/*.js src/**/*.js --fix",
     "build": "babel src -d dist",
-    "dev": "node dev.js",
+    "dev": "nodemon dev.js",
     "start": "npm run build && pm2 start dist/server.js --name app --merge-logs --log-date-format='YYYY-MM-DD HH:mm:ss Z'",
     "sync-db": "node sync.js"
   },

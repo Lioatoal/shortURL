@@ -5,7 +5,7 @@ export default {
     host: 'localhost',
     dialect: 'sqlite',
     database: 'shortURL',
-    storage: './shortUrl.sqlite',
+    storage: './src/shortUrl.sqlite',
     pool: {
       max: 50,
       min: 0,

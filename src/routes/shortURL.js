@@ -3,13 +3,13 @@ import controller from '../controllers'
 export default [
   {
     method: 'get',
-    path: '/:_id',
+    path: 'get/:id',
     beforeAction: [],
     controller: controller.shortURL.getShortURL,
   },
   {
     method: 'post',
-    path: '/shortURL',
+    path: 'shortURL',
     beforeAction: [],
     controller: controller.shortURL.createShortURL,
   },

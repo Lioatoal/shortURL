@@ -2,10 +2,52 @@
 <html>
   <head>
     <link rel="stylesheet" href="/public/css/style.css">
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous">
+    </script>
   </head>
   <body>
     <div class="container">
       <h1><%= title %></h1>
+      <input id="urlText" type="text" style="width:20%;">
+      <button onclick="getNewUrl()">Get Change</button>
+      <div style="padding-top: 5%;">
+        <label style="padding-right: 30px;">New URL:</label>
+        <a id="urlRes" href=""></a>
+      </div>
     </div>
+    <script>
+      function getNewUrl() {
+        var url = document.getElementById("urlText")
+        var newLink = document.getElementById("urlRes")
+        
+        var requestURL = "http://localhost:3000/shortURL"
+        var dataJSON = {
+          orgURL: url.value
+        }
+
+        $.ajax({
+            url: requestURL,
+            data: JSON.stringify(dataJSON),
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function(returnData){
+              const { success, mseeage, newURL } = returnData
+              if (success) {
+                newLink.href = `http://localhost:3000/get/${newURL}`
+                newLink.innerHTML = newLink.href
+              }
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                console.log(xhr.status);
+                console.log(thrownError);
+                newLink.innerHTML = xhr.responseJSON.message
+            }
+        });
+      }
+    </script>
   </body>
 </html>

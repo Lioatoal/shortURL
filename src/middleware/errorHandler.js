@@ -8,8 +8,6 @@ export default async (ctx, next) => {
       ctx.throw(404)
     }
   } catch (err) {
-    if (err.message === 'jwt expired') err.status = 401
-
     ctx.status = err.status || 500
 
     if (ctx.status === 404) {

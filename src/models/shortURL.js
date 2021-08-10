@@ -2,7 +2,9 @@ import Sequelize from 'sequelize'
 import { BaseModel, sequelize } from './index'
 
 const shortURL = Object.assign({
-  id: { type: Sequelize.INTEGER, allowNull: true, primaryKey: true },
+  id: {
+    type: Sequelize.INTEGER, allowNull: true, primaryKey: true, autoIncrement: true,
+  },
   orgUrl: { type: Sequelize.TEXT, allowNull: false },
   newUrl: { type: Sequelize.TEXT, allowNull: false },
 }, BaseModel)
