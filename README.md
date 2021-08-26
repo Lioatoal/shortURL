@@ -1,5 +1,5 @@
 # shortURL
-a shorten URL tool, created by node.js + sqlite + redis
+a shorten URL tool, created by node.js + sqlite3 + redis
 
 ## Required
 Nodejs >= 8.0.0 (Using async/await)
